@@ -1,15 +1,15 @@
-use MD;
+use EMP;
 
+--Displaying  all the records
 SELECT * FROM EMP;
 
+--Cross product
 SELECT * FROM EMP AS A,EMP AS B;
 
-SELECT * FROM EMP AS A,EMP AS B
-WHERE A.MNGID = B.ID;
+--Displaying manager name using   self join (Cross Product)
+SELECT A.EMPNO,A.NAME,B.NAME  FROM EMP AS A,EMP AS B
+WHERE A.MGR = B.EMPNO;
 
-SELECT * FROM EMP AS A,EMP AS B
-WHERE A.MNGID = B.ID;
- 
-
-
-
+--Displaying manager name using   self join (Inner join)
+SELECT A.EMPNO,A.NAME,B.NAME AS MANAGER_NAME  FROM EMP AS A INNER JOIN EMP AS B
+ON A.MGR = B.EMPNO;
